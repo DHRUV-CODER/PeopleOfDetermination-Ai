@@ -11,8 +11,9 @@ export default function Home() {
     <div>
       <Container size="30rem" px={10}>
         <br />
+        <h1>Text to hand sign converter</h1>
         <Input
-          placeholder="Text Data"
+          placeholder="Convert any text to hand signs"
           radius="xs"
           size="lg"
           onChange={(e) => {
