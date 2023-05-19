@@ -34,7 +34,12 @@ export default function Home() {
             <code>make it mobile friendly</code>{" "}
           </li>
         </ul>
-      </Container>
+
+      </Container>        <div style={{ position: "fixed", bottom: 0, width: "100%", textAlign: "center", marginBottom: "20px" , opacity : "0.5"}}>
+          <center>
+          <h3>Made with 💖 By Dhruv</h3>
+          </center>
+        </div>
     </div>
   );
 }
