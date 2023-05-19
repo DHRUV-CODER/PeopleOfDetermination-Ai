@@ -17,12 +17,23 @@ export default function Home() {
           radius="xs"
           size="lg"
           onChange={(e) => {
-            setTransText(textToASL(e.target.value))
-            setBTransText(textToBraille(e.target.value))
+            setTransText(textToASL(e.target.value));
+            setBTransText(textToBraille(e.target.value));
           }}
         />
         <h1>{transText}</h1>
         {/* <h1>{BtransText}</h1> */}
+        <h1 id="-to-do-">
+          <code>To Do</code>
+        </h1>
+        <ul>
+          <li>
+            <code>Put real hand sign images</code>
+          </li>
+          <li>
+            <code>make it mobile friendly</code>{" "}
+          </li>
+        </ul>
       </Container>
     </div>
   );
