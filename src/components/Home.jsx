@@ -22,7 +22,7 @@ export default function Home() {
           }}
         />
         <h1>{transText}</h1>
-        <h1>{BtransText}</h1>
+        {/* <h1>{BtransText}</h1> */}
       </Container>
     </div>
   );

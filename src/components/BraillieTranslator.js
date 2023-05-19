@@ -26,11 +26,11 @@ export function textToBraille(text) {
       x: '⠭',
       y: '⠽',
       z: '⠵',
-      ' ': '⠀',
+      ' ': '  ',
     };
   
     let brailleText = '';
-    for (let char of text.toLowerCase()) {
+    for (const char of text.toLowerCase()) {
       if (char in brailleDict) {
         brailleText += brailleDict[char];
       }
