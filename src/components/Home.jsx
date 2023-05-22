@@ -1,45 +1,57 @@
-import { Container, Input } from "@mantine/core";
+import { Container, Flex, Image, Input } from "@mantine/core";
 import React, { useState } from "react";
 import { textToASL } from "./AslTranslator";
 import { textToBraille } from "./BraillieTranslator";
 
 export default function Home() {
-  const [transText, setTransText] = useState("");
-  const [BtransText, setBTransText] = useState("");
+  const [text, setText] = useState("");
+  const [transText, setTransText] = useState([]);
+
+  const handleTextChange = (event) => {
+    const newText = event.target.value;
+    setText(newText);
+    const newASLText = Array.from(newText).map((letter) => textToASL(letter));
+    setTransText(newASLText);
+  };
 
   return (
     <div>
-      <Container size="30rem" px={10}>
+      <Container>
         <br />
         <h1>Text to hand sign converter</h1>
         <Input
           placeholder="Convert any text to hand signs"
           radius="xs"
           size="lg"
-          onChange={(e) => {
-            setTransText(textToASL(e.target.value));
-            setBTransText(textToBraille(e.target.value));
-          }}
+          value={text}
+          onChange={handleTextChange}
         />
-        <h1>{transText}</h1>
-        {/* <h1>{BtransText}</h1> */}
-        <h1 id="-to-do-">
-          <code>To Do</code>
-        </h1>
-        <ul>
-          <li>
-            <code>Put real hand sign images</code>
-          </li>
-          <li>
-            <code>make it mobile friendly</code>{" "}
-          </li>
-        </ul>
-
-      </Container>        <div style={{ position: "fixed", bottom: 0, width: "100%", textAlign: "center", marginBottom: "20px" , opacity : "0.5"}}>
-          <center>
-          <h3>Made with 💖 By Dhruv</h3>
-          </center>
-        </div>
+        <br />
+        <Flex
+          mih={50}
+          gap="md"
+          justify="flex-start"
+          align="center"
+          direction="row"
+          wrap="wrap"
+        >
+          {transText.map((aslText, index) => (
+            <div>
+              {console.log(aslText.replace(/[^A-Za-z]/g, "")[6])}
+              <Image
+                width={58}
+                height={100}
+                key={index}
+                caption={aslText.replace(/[^A-Za-z]/g, "")[6]}
+                radius="xs"
+                src={aslText}
+                alt="Random image"
+              />
+            </div>
+          ))}
+        </Flex>
+        <div></div>
+      </Container>{" "}
     </div>
   );
 }
