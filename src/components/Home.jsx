@@ -37,12 +37,12 @@ export default function Home() {
         >
           {transText.map((aslText, index) => (
             <div>
-              {console.log(aslText.replace(/[^A-Za-z]/g, "")[6])}
+              {console.log(aslText.replace(/[^A-Za-z]/g, "")[0])}
               <Image
                 width={58}
                 height={100}
                 key={index}
-                caption={aslText.replace(/[^A-Za-z]/g, "")[6]}
+                caption={aslText.replace(/[^A-Za-z]/g, "")[0]}
                 radius="xs"
                 src={aslText}
                 alt="Random image"
